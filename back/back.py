@@ -40,5 +40,11 @@ def set_quote():
         return json.dumps({'success':False}), 500, {'ContentType':'application/json'}
 
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+@app.route('/healthz', methods=['GET']) def healthz():
+    try:
+        db.session.query("1").from_statement("SELECT 1").all()
+        return json.dumps({'up':True}), 200, {'ContentType':'application/json'}
+    except:
+        return json.dumps({'up':False}), 500, {'ContentType':'application/json'}
     # This API will run on port 3000 on host 0.0.0.0. if __name__ == "__main__":
 app.run(host='0.0.0.0', port=3000, debug=True)
