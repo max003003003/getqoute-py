@@ -1,22 +1,13 @@
 version: "3"
 services:
     back:
-        build:
-            context: back
-            dockerfile: Dockerfile
-        volumes:
-            - ./back/:/app
+        image: max003003003/qoutes-backend:v1
         ports:
             - "3000:3000"
         networks:
             - myapp
     data:
-        container_name: data
-        build:
-            context: data
-            dockerfile: Dockerfile
-        volumes:
-            - ./data/mydatabase.sql:/tmp/mydatabase.sql
+        image: max003003003/quotes-data:v1
         ports:
             - "3306:3306"
         environment:
