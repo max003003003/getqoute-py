@@ -13,4 +13,4 @@ PyMySQL==0.9.2
 six==1.11.0
 SQLAlchemy==1.2.14
 Werkzeug==0.14.1
-yoyo-migrations==7.2.2
+yoyo-migrations==7.2.0
